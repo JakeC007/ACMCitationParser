@@ -1,5 +1,5 @@
 """
-ACM Citation Parser
+IEEE Citation Parser
 Written by Jake Chanenson on July 1, 2020
 
 @params: ensure that the file to parse is titled input.txt and is at same folder level as this python file
