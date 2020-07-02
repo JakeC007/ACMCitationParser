@@ -11,7 +11,6 @@ def main():
   outputlst = []
   outputentry = ""
   cntr = 0
-  entryCntr = 0
   
   #read from file
   fInput = open('input.txt', 'r')
@@ -23,21 +22,21 @@ def main():
       continue
     words = line.split()
     if words[0] != "keywords:":
-      outputentry += line #+ '\n'
+      outputentry += line + " " 
       cntr+=1
-    if cntr == 3: # if all three citation elements are in the str, add to lst
+    if cntr%3 == 0: # if all three citation elements are in the str, add to lst
       outputlst.append(outputentry + '\n')
       outputlst.append('\n')
       outputentry = ""
-      entryCntr +=1 #keep track of entries in lst
-      cntr = 0 #reset count for elements in citation
+      
+      #cntr = 0 #reset count for elements in citation
 
   #write to file
   fOutput = open("output.txt", 'w')
   fOutput.writelines(outputlst) 
   fOutput.close()
   print("Citations parsed and put in output.txt")
-  print(print("Number of entries: %d" %(len(outputlst))))
+  print(print("Number of entries: %d" %(cntr/3)))
 
 if __name__ == "__main__":
   main()
